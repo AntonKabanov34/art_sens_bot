@@ -51,7 +51,7 @@ async def get_file_id(chat_id, file_path) -> str:
     try:
         # Отправляем файл в Telegram и получаем объект Message
         with open(file_path, 'rb') as file:
-            message = await bot.send_document(chat_id=chat_id, document=InputFile(file))
+            message = await bot.send_document(chat_id=chat_id, document=InputFile(file), reply_markup=keyboard.get_main_menu_2())
         # Извлекаем file_id из отправленного документа
         file_id = message.document.file_id
         return file_id

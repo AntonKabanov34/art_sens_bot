@@ -40,10 +40,10 @@ QUERIES_ANALITIC = {
     "count_all_article":"SELECT COUNT(*) AS total_downloads FROM downloads",
     
     "top_articles":"""
-    SELECT u.user_id, COUNT(*) AS download_count
+    SELECT a.art, COUNT(*) AS download_count
     FROM downloads d
-    JOIN user_id u ON d.user_id = u.id
-    GROUP BY u.user_id
+    JOIN article a ON d.article_id = a.id
+    GROUP BY a.art
     ORDER BY download_count DESC
     LIMIT 5;
     """,
